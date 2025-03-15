@@ -11,8 +11,13 @@ import torch.nn as nn
 from torch.utils.data import Dataset
 from typing import Tuple
 
+import os
+from dotenv import load_dotenv
 
-TOKEN = ...                         # Your token here
+
+load_dotenv()
+
+TOKEN = os.getenv("TOKEN")
 SUBMIT_URL = "149.156.182.9:6060/task-2/submit"
 RESET_URL = "149.156.182.9:6060/task-2/reset"
 QUERY_URL = "149.156.182.9:6060/task-2/query"
@@ -21,7 +26,6 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class TaskDataset(Dataset):
     def __init__(self, transform=None):
-
         self.ids = []
         self.imgs = []
         self.labels = []
@@ -38,7 +42,6 @@ class TaskDataset(Dataset):
 
     def __len__(self):
         return len(self.ids)
-
 
 
 def quering_example():
@@ -110,4 +113,3 @@ def submitting_example():
 if __name__ == '__main__':
     quering_example()
     submitting_example()
-
