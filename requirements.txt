@@ -1,6 +1,6 @@
 asyncpg
-gymnasium
-pygame
+# gymnasium
+# pygame
 torch
 # torch from: https://pytorch.org/get-started/locally/
 torchvision
