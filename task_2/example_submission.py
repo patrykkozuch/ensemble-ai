@@ -23,6 +23,7 @@ RESET_URL = "149.156.182.9:6060/task-2/reset"
 QUERY_URL = "149.156.182.9:6060/task-2/query"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+DATASET_PATH = os.getenv("TASK_2_DATA_PUBLIC_PATH")
 
 class TaskDataset(Dataset):
     def __init__(self, transform=None):
@@ -45,7 +46,7 @@ class TaskDataset(Dataset):
 
 
 def quering_example():
-    dataset = torch.load(...)                   # Path to ModelStealingPub.pt
+    dataset = torch.load(DATASET_PATH)                   # Path to ModelStealingPub.pt
     images = [dataset.imgs[idx] for idx in np.random.permutation(1000)]
 
     image_data = []
