@@ -25,6 +25,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 DATASET_PATH = os.getenv("TASK_2_DATA_PUBLIC_PATH")
 
+
 class TaskDataset(Dataset):
     def __init__(self, transform=None):
         self.ids = []
