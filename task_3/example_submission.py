@@ -16,7 +16,7 @@ if __name__ == '__main__':
     #### SUBMISSION ####
 
     # Create a dummy model
-    model = models.resnet18(weights=None)
+    model = models.resnet50(weights=None)
     model.fc = nn.Linear(model.fc.weight.shape[1], 10)
     torch.save(model.state_dict(), "out/models/dummy_submission.pt")
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     }
     with open("out/models/dummy_submission.pt", "rb") as f:
         try:
-            model: torch.nn.Module = allowed_models["resnet18"](weights=None)
+            model: torch.nn.Module = allowed_models["resnet50"](weights=None)
             model.fc = torch.nn.Linear(model.fc.weight.shape[1], 10)
         except Exception as e:
             raise Exception(
@@ -51,8 +51,8 @@ if __name__ == '__main__':
     response = requests.post(
         URL,
         headers={
-            "token": TOKEN,
-            "model-name": "resnet18"
+            "token": "i2SLZ1KbTzJeGkfPTWxE2Y53W9D0R5",
+            "model-name": "resnet50"
         },
         files={
             "model_state_dict": open("out/models/dummy_submission.pt", "rb")
