@@ -180,3 +180,5 @@ data/
 lightning_logs/
 checkpoints/
 *.pt
+wandb/
+*.onnx
